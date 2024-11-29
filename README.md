@@ -28,10 +28,10 @@ Film Finder is a mobile application built with Flutter that allows users to expl
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone <repository-link>
+   git clone <[repository-link](https://github.com/Jules-gatete/flutter_find_movie_app.git)>
 
 Navigate to the project directory:
- cd film-finder
+ cd flutter_find_movie_app
 
 
 Install dependencies:
@@ -45,4 +45,4 @@ Run the app on an emulator or connected device:
 Demo Video
 Watch the app walkthrough: Film Finder Demo [https://youtu.be/GhrGeaKehDw)
 GitHub Repository
-Find the codebase here: Film Finder GitHub
+Find the codebase here: Film Finder GitHub [https://github.com/Jules-gatete/flutter_find_movie_app.git)
