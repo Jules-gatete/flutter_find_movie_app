@@ -44,5 +44,6 @@ Run the app on an emulator or connected device:
 
 Demo Video
 Watch the app walkthrough: Film Finder Demo [https://youtu.be/GhrGeaKehDw)
+
 GitHub Repository
 Find the codebase here: Film Finder GitHub [https://github.com/Jules-gatete/flutter_find_movie_app.git)
