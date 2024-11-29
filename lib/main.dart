@@ -16,7 +16,7 @@ class FilmFinderApp extends StatelessWidget {
       create: (_) => MovieProvider()..fetchMovies(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'trends in movies',
+        title: 'Trends in Movies',
         initialRoute: '/',
         routes: {
           '/': (context) => const WelcomeScreen(),
@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'assets/img.jpg',
+            'assets/img1.jpg',
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               return Container(
@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Welcome to movie Hack App',
+                'Welcome to Movie Hack App',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,

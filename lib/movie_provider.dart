@@ -4,11 +4,16 @@ import 'package:http/http.dart' as http;
 
 class MovieProvider extends ChangeNotifier {
   List<dynamic> _movies = [];
+  List<dynamic> _favorites = []; // List to store favorite movies
   bool _isLoading = false;
 
+  var favoriteMovies;
+
   List<dynamic> get movies => _movies;
+  List<dynamic> get favorites => _favorites; // Getter for favorites
   bool get isLoading => _isLoading;
 
+  // Fetch movies from the API
   Future<void> fetchMovies() async {
     _isLoading = true;
     notifyListeners();
@@ -31,5 +36,33 @@ class MovieProvider extends ChangeNotifier {
 
     _isLoading = false;
     notifyListeners();
+  }
+
+  // Add a movie to favorites
+  void addFavorite(dynamic movie) {
+    if (!_favorites.contains(movie)) {
+      _favorites.add(movie);
+      notifyListeners();
+    }
+  }
+
+  // Remove a movie from favorites
+  void removeFavorite(dynamic movie) {
+    _favorites.remove(movie);
+    notifyListeners();
+  }
+
+  // Toggle favorite status
+  void toggleFavorite(dynamic movie) {
+    if (_favorites.contains(movie)) {
+      removeFavorite(movie);
+    } else {
+      addFavorite(movie);
+    }
+  }
+
+  // Check if a movie is in favorites
+  bool isFavorite(dynamic movie) {
+    return _favorites.contains(movie);
   }
 }
