@@ -13,7 +13,17 @@ class FavoritesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorites'),
+        title: const Text(
+          'Favorites',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 140, 23, 23),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: favorites.isEmpty
           ? const Center(
@@ -40,8 +50,7 @@ class FavoritesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            MovieDetailScreen(movie: movie),
+                        builder: (context) => MovieDetailScreen(movie: movie),
                       ),
                     );
                   },

@@ -15,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Fetch movies when the screen loads
     Provider.of<MovieProvider>(context, listen: false).fetchMovies();
   }
 
@@ -25,16 +24,35 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Movies'),
-        backgroundColor: Colors.blueAccent,
+        title: const Text(
+          'Movies',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 140, 23, 23),
+        iconTheme: const IconThemeData(
+          color: Colors.white, 
+        ),
+        toolbarTextStyle: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold, 
+          fontSize: 18,
+        ),
+        actionsIconTheme: const IconThemeData(
+          color: Colors.white, 
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite),
             onPressed: () {
-              // Navigate to the FavoritesScreen
+              
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+                MaterialPageRoute(
+                  builder: (context) => const FavoritesScreen(),
+                ),
               );
             },
           ),
@@ -61,14 +79,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         : const Icon(Icons.movie),
                   ),
                   title: Text(movie['title'] ?? 'Untitled'),
-                  subtitle: Text(movie['release_date'] ?? 'Release date unknown'),
+                  subtitle:
+                      Text(movie['release_date'] ?? 'Release date unknown'),
                   trailing: IconButton(
                     icon: Icon(
                       isFavorite ? Icons.favorite : Icons.favorite_border,
-                      color: isFavorite ? Colors.red : null,
+                      color: isFavorite
+                          ? const Color.fromARGB(255, 140, 23, 23)
+                          : null, 
                     ),
                     onPressed: () {
-                      // Toggle favorite status
+                      
                       movieProvider.toggleFavorite(movie);
                     },
                   ),

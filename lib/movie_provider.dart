@@ -1,19 +1,18 @@
-import 'dart:convert'; // For JSON decoding
+import 'dart:convert'; 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class MovieProvider extends ChangeNotifier {
   List<dynamic> _movies = [];
-  List<dynamic> _favorites = []; // List to store favorite movies
+  List<dynamic> _favorites = []; 
   bool _isLoading = false;
 
   var favoriteMovies;
 
   List<dynamic> get movies => _movies;
-  List<dynamic> get favorites => _favorites; // Getter for favorites
+  List<dynamic> get favorites => _favorites; 
   bool get isLoading => _isLoading;
 
-  // Fetch movies from the API
   Future<void> fetchMovies() async {
     _isLoading = true;
     notifyListeners();
@@ -26,7 +25,7 @@ class MovieProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        _movies = data['results'] ?? []; // Extract the list of movies
+        _movies = data['results'] ?? []; 
       } else {
         throw Exception('Failed to load movies');
       }
@@ -38,7 +37,6 @@ class MovieProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Add a movie to favorites
   void addFavorite(dynamic movie) {
     if (!_favorites.contains(movie)) {
       _favorites.add(movie);
@@ -46,13 +44,11 @@ class MovieProvider extends ChangeNotifier {
     }
   }
 
-  // Remove a movie from favorites
   void removeFavorite(dynamic movie) {
     _favorites.remove(movie);
     notifyListeners();
   }
 
-  // Toggle favorite status
   void toggleFavorite(dynamic movie) {
     if (_favorites.contains(movie)) {
       removeFavorite(movie);
@@ -61,7 +57,7 @@ class MovieProvider extends ChangeNotifier {
     }
   }
 
-  // Check if a movie is in favorites
+ 
   bool isFavorite(dynamic movie) {
     return _favorites.contains(movie);
   }
