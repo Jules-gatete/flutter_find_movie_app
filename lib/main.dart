@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Welcome to \n Movie Hack App',
+                'Welcome to \n Movie Finder App',
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.w900,
